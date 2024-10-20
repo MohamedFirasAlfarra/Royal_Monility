@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cars Page</title>
+    <link rel="stylesheet" href="styles.css">  
+    <style>
+      body 
+   {
+    background-color: black;
+    /* background-image: url("bmw.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 100vh; */
+   }
+
+   
+     </style>
+  </head>
+<body>
+
+  <header class="header">
+    <h1 class="title_header">Royal <span class="span_header">Monility</span></h1>
+    <nav class="navbar">
+      <ol>
+        <li>
+          <a href="index.html" class="link">Home</a>
+        </li>
+        <li>
+          <a href="cars.html" class="link">Cars</a>
+        </li>
+      </ol>
+    </nav>
+  </header>
+    <h1 class="header_table">Cars Page</h1>
+    <table id="cars-table" style="width: 80%; margin-left: 12rem;background-color: #fff;">
+      
+            <tr>
+                <th>Car Type</th>
+                <th>Date of Manufacture</th>
+                <th>Rental Type</th>
+                <th>Rental Value</th>
+                <th>Image</th>
+            </tr>
+       
+        <tbody>
+    <tr>
+         <td>BMW M8</td>
+         <td>2022</td>
+         <td>annually</td>
+         <td>25000000$</td>
+         <td><img src="images/1.jpg" alt="صورة السيارة"></td> 
+    </tr>
+
+<td>Toyota RAV4 V6</td>
+<td>2012</td>
+<td>annually </td>
+<td>17000000$</td>
+<td><img src="images/2.jpg" alt="صورة السيارة"></td>
+</tr>
+
+ <td>Austin Montego</td>
+<td>1990</td>
+<td>annually</td>
+<td>400000$</td>
+<td><img src="images/3.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Hyundai Elantra SE</td>
+<td>2007</td>
+<td>annually</td>
+<td>10000000$</td>
+<td><img src="images/4.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Audi A3 Sedan</td>
+<td>2024</td>
+<td>annually</td>
+<td>27000000$</td>
+<td><img src="images/5.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Toyota Camry Hybrid</td>
+<td>2007</td>
+<td>annually</td>
+<td>19000000$</td>
+<td><img src="images/6.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Kia Rio</td>
+<td>2021</td>
+<td>annually</td>
+<td>16000000$</td>
+<td><img src="images/7.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Mercedes-Benz 500SEL</td>
+<td>1992</td>
+<td>annually</td>
+<td>19000000$</td>
+<td><img src="images/8.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Ford F-150</td>
+<td>2021</td>
+<td>annually</td>
+<td>21500000$</td>
+<td><img src="images/9.jpg" alt="صورة السيارة"></td>
+</tr>
+
+<td>Toyota Camry LE</td>
+<td>2017</td>
+<td>annually</td>
+<td>17500000$</td>
+<td><img src="images/10.jpg" alt="صورة السيارة"></td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="car-image" src="" alt="صورة السيارة">
+            <div id="car-details"></div>
+            <div id="car-price"></div>
+
+            
+            <a href="#" class="btn">Tracking<input type="checkbox" id="follow-checkbox" for="follow-checkbox" ></a>
+            
+            <pre> 
+            <form id="car-request-form" style="display: none;">
+<label for="full-name">FullName :</label>
+<input type="text" placeholder="Enter Your FullName" id="full-name" size="25px" required pattern="[أ-ي\s]+" title="يرجى إدخال أحرف هجائية فقط باللغة العربية">
+
+<label for="national-id">NationalId :</label>
+<input type="text" placeholder="Enter Your NationalId" id="national-id" size="25px" required pattern="[0-9]{2}(0[1-9]|1[0-4])[0-9]{8}" title="يرجى إدخال الرقم الوطني المكون من 11 خانة">
+
+<label for="birth-date">Birth Date :</label>
+  <input type="date" placeholder="Enter Your Birth Date " id="birth-date" size="25px" required>
+
+<label for="mobile-number">Phone Number :</label>
+<input type="tel" placeholder="Enter Your Phone Number " id="mobile-number" size="25px" required pattern="(09[0-9]{8}|0[5-6][0-9]{8})" title="يرجى إدخال رقم الموبايل المكون من 10 أرقام ويبدأ بـ 09 أو 05 أو 06">
+
+<label for="email">Email</label>
+<input type="email" placeholder="Enter Your Email" id="email" size="25px" required>
+
+ <label for="duration">Number of days Required</label>
+<input type="number" placeholder="Enter Your Number of days Required" id="duration" size="25px" required>
+<div class="captcha-container">
+          <div class="captcha-content">
+          <span id="captcha" size="50px" style="font-size: 35px; color: skyblue;margin-right: 70px;"></span>
+<input type="text" id="userInput" placeholder="Enter CAPTCHA code">
+                      <div class="button-group">
+      <button onclick="checkCaptcha()">Check</button> <button onclick="refreshCaptcha()">Rrefresh</button>                                                        
+</div>
+  <button class="submit" type="submit" >Request</button>
+</pre>
+        </div>
+    </div>
+<pre>
+
+<div id="request-form">
+
+    <style media="screen">
+      
+        @keyframes movslider{
+          0%{transform: translate(0);}
+          25%{transform: translate(0);}
+          30%{transform: translate(-100%);}
+          40%{transform: translate(-100%);}
+          50%{transform: translate(-200%);}
+          60%{transform: translate(-200%);}
+          70%{transform: translate(-300%);}
+          80%{transform: translate(-300%);}
+          90%{transform: translate(-400%);}
+          100%{transform: translate(-400%);}
+          110%{transform: translate(-500%);}
+          120%{transform: translate(-500%);}
+        }
+        img{
+          width: 650px;
+          height: 400px;
+        }
+        </style>
+        
+        <body>
+          <div class="container">
+            <div class="imges">
+              <img src="images/11.jpg">
+              <img src="images/22.jpg">
+              <img src="images/33.jpg">
+              <img src="images/55.jpeg">
+              <img src="images/66.jpg">
+              <img src="images/777.jpg">
+            </div>
+          </div>
+          </body>
+    <pre>                                                          
+                            
+                          <style media="screen">
+                            body{
+                              background-color: rgb(255, 255, 255);
+                              margin-bottom: 50px;
+                            }
+                          </style>
+                             
+    </form>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
+<body>
+ 
+
+
+
+
+  <td><h1>معلومات تفصيلية</h1></td>     
+
+      <img src="images/1.jpg" alt="سيارة 1" style="width:40%">  <img src="images/111.jpg" alt="سيارة 1" style="width:40%">
+      <div class="caption">
+       <td><h1>BMW M8</h1></td>
+       <td><h1>   بمحرك ثماني الاسطوانات بقوة 617 حصانBMW موديل 2023 من  M8 تعمل</h1></td>
+       <td><h1>وتبلغ سعته 4.4 لتر، وبعزم دوران 553 رطل قدم عند 1800 لفة/ الدقيقة،</h1></td>
+        <table>
+             <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                   </thead>
+        <tr>
+          <th> 25000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>25010000 ليرة سورية</th>
+     
+            </tr>
+                  
+  
+          </table>
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+        </div>
+     </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/2.jpg" alt="سيارة 2"style="width:40%" >  <img src="images/222.jpg" alt="سيارة 2"style="width:40%" >
+      <div class="caption">
+  
+        
+       <td><h1>Toyota RAV4 V6</h1></td>
+       <td><h1>وتأتي تويوتا راف فور 2022 بمحرك رباعي الأسطوانات بسعة 2500 سي سي</h1></td>
+       <td><h1>ويولد قوة 204 أحصنة، وعزم دوران 243 نيوتن مترا،</h1></td>
+       <td><h1>مع ناقل حركة من 8 سرعات ودفع رباعي، مع تسارع محرك من 0 إلى 100 كيلومتر في الساعة خلال 9 ثوان.</h1></td>
+
+        <table>
+             <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                   </thead>
+        <tr>
+          <th> 17000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>17010000 ليرة سورية</th>
+     
+            </tr>
+                   
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/3.jpg" alt="سيارة 3"style="width:40%">  <img src="images/333.jpg" alt="سيارة 3"style="width:40%">
+      <div class="caption">
+        <td><h1>Austin Montego</h1></td>
+        <td><h1>SPACCER طقم رفع السيارة لمزيد من الخلوص الأرضي. تتكون مجموعة الرفع </h1></td>
+        <td><h1>واحدة لليسار ، وواحدة للعجلة اليمنى للمحور المعني. SPACCER من اثنين من</h1></td>
+       <table>
+            <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                  </thead>
+        <tr>
+          <th> 400000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>410000 ليرة سورية</th>
+             
+            </tr>
+                  
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/4.jpg" alt="سيارة 4"style="width:40%"> <img src="images/444.jpg" alt="سيارة 4"style="width:40%" >
+      <div class="caption">
+        <td><h1>Hyundai Elantra SE</h1></td>
+        <td><h1>تتوفر سيارة النترا بثلاث خيارات للمحرك في أسواقنا العربية. المحرك الأول يعمل على البنزين</h1></td>
+        <td><h1> وهو غير هجين، بسعة 1.6 لتر، ومكون من 4 أسطوانات بقدرة 123 حصان وعزم دوران 157 نيوتن بالمتر،</h1></td>
+       <table>
+            <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+         <th>رسم إعادة الإعمار</th>
+         <th>الضريبة</th>
+         <th>الإيجار النهائي</th>
+         </tr>
+                  </thead>
+        <tr>
+          <th> 10000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>10010000 ليرة سورية</th>
+     
+            </tr>
+                  
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/5.jpg" alt="سيارة 5"style="width:40%"> <img src="images/555.jpg" alt="سيارة 5"style="width:40%" >
+      <div class="caption">
+        <td><h1>Audi A3 Sedan</h1></td>
+        <td><h1>محرك 4 أسطوانات متتالية بسعة 1.4 لتر مع شاحن توربيني - دفع بالعجلات الأمامية</h1></td>
+      
+          <table>
+               <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                     </thead>
+        <tr>
+          <th> 27000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>27010000 ليرة سورية</th>
+     
+            </tr>
+                     
+          </table> 
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/6.jpg" alt="سيارة 6"style="width:40%"> <img src="images/666.jpg" alt="سيارة 6"style="width:40%">
+      <div class="caption">
+        <td><h1>Toyota Camry Hybrid</h1></td>
+        <td><h1>تويوتا كامري 2022 تعد من أشهر سيارات سيدان الحديثة في الأسواق </h1></td>
+        <td><h1>وتتميز بالعديد من المواصفات التي تجعلها أفضل اختيار لمن يبحث عن سيارة تتمتع بالتكنولوجيا العالية.</h1></td>
+        <table>
+             <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                   </thead>
+        <tr>
+          <th> 19000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>19010000 ليرة سورية</th>
+     
+            </tr>
+                   
+          </table>
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/7.jpg" alt="سيارة 7"style="width:40%"> <img src="images/777.jpg" alt="سيارة 7"style="width:40%">
+      <div class="caption">
+        <td><h1>Kia Rio</h1></td>
+        <td><h1>مزودة بمحرك رباعي الاسطوانات بسعة 1.6 لتر</h1></td>
+        <td><h1>وقوة 130 حصان </h1></td>
+       <table>
+            <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                  </thead>
+        <tr>
+          <th>16000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>16010000 ليرة سورية</th>
+     
+            </tr>
+                 
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/8.jpg" alt="سيارة 8"style="width:40%"> <img src="images/888.jpg" alt="سيارة 8"style="width:40%">
+      <div class="caption">
+        <td><h1>Mercedes-Benz 500SEL</h1></td>
+        <td><h1>محرك 500 وهو بسعة 5 لتر يولد قدرة حصانية مقدارها 306 أحصنة</h1></td>
+        <td><h1>و عزم دورانه 460 نيوتن.متر …. عدد الأحصنة لكل لتر = 61حصان 
+    عزم الدوران لكل لتر = 92 نيوتن.متر </h1></td>
+        <table>
+             <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                   </thead>
+        <tr>
+          <th> 19000000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>19010000 ليرة سورية</th>
+     
+            </tr>
+                  
+          </table>
+       
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/9.jpg" alt="سيارة 9"style="width:40%"> <img src="images/999.png" alt="سيارة 9"style="width:40%">
+      <div class="caption">
+        <td><h1>Ford F-150</h1></td>
+        <td><h1>يقدّم لك هذا المحرّك الأسطوري  من فورد مع ناقل حركة بـ10 سرعات كل القوة التي تحتاج إليها</h1></td>
+        <td><h1>بالإضافة إلى أقصى معدل للحمولة الأفضل في فئته مع 1508 كلغ9 مع قوة متينة تبلغ 400 حصان</h1></td>
+        <table>
+            <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+         <th>رسم إعادة الإعمار</th>
+         <th>الضريبة</th>
+         <th>الإيجار النهائي</th>
+         </tr>
+                </thead>
+        <tr>
+          <th>21500000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>21510000 ليرة سورية</th>
+     
+            </tr>
+            
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      <div class="col-sm-4">
+     <div class="thumbnail">
+      <img src="images/10.jpg" alt="سيارة 10"style="width:40%"> <img src="images/1000.jpeg" alt="سيارة 10"style="width:40%">
+      <div class="caption">
+        <td><h1>Toyota Camry LE</h1></td>
+        <td><h1>يتميز هذا الطراز براديو متصل بالقمر الصناعي وشاشة معلومات تعمل باللمس مقاس 7 بوصات</h1></td>
+        <td><h1>كما يمكن تعديل مقعد السائق كهربائيًا في 8 اتجاهات. كذلك لديها تحكم أوتوماتيكي مزدوج.</h1></td>
+        <table>
+             <thead>
+          <tr>
+            <th> الايجار السنوي</th>
+            <th>رسم إعادة الإعمار</th>
+            <th>الضريبة</th>
+            <th>الإيجار النهائي</th>
+         </tr>
+                 </thead>
+        <tr>
+          <th> 17500000ل.س</th>
+          <th> 2500 ليرة سورية</th>
+          <th> 7500ليرة سورية</th>
+            <th>17510000 ليرة سورية</th>
+     
+            </tr>
+                  
+          </table>
+          
+          <p><h1><a href="#" class="btn btn-primary" role="button">احجز الآن</a></h1></p>
+      </div>
+     </div>
+    </div>
+      </body>
+      <body>
+      <button><a href="home.html"><font color="blueviolet" size="3"><= الرجوع الى الصفحة الرئيسية  </font></a></button>
+      </body>
